@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smash Bros Coach</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Unbounded&display=swap');
+        html {
+            font-size: 13px;
+        }
+
+        @media only screen and (min-width: 400px) {
+        html {
+            font-size: 16px;
+        }
+        }
+        @media only screen and (min-width: 768px) {
+        html {
+            font-size: 19px;
+        }
+        }
+
+        h1{
+            font-family: 'Unbounded', cursive;
+            color:Black;
+        }
+
+        .form-container{
+            display:flex;
+            justify-content:center;
+            align-items: center;
+            height:20rem;
+            width:40rem;
+            outline-style:solid;
+            outline-color: black;
+        }
+
+        body{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:flex-start;
+            gap: 5rem;
+        }
+
+        .header{
+            width:100vw;
+            display:flex;
+            justify-content:center;
+            background-color: #4C8AEB;
+        }
+        .text{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header class='header'>
+        <h1>Smash Bros Coach</h1>
+    </header>
+    <div class="form-container">
+        <form action="gresponse" method="get">
+        <label class='text' for="character">What character do you need help with? </label>
+        <input class='text' type="text" id="character" name="character" /><br />
+        <input class='text' type="submit" value="Go" name="gobtn"/></form>
+    </div>
+</body>
+</html>
