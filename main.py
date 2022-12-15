@@ -1,20 +1,12 @@
-## 1.Accesses an API (not the sunrise/sunset API or the National Weather Service API) to retrieve results.
-## 2.Accepts user input, through a form, that affects what it searches for and/or what results it shows.
+
 import urllib.parse, urllib.request, urllib.error, json
 import logging
 import buildingblocks as buildingblocks
 from flask import Flask, render_template, request
-#from jinja2 import Environment, FileSystemLoader
 
 
 app = Flask(__name__)
 
-
-#def hello():
-    #return "<!DOCTYPE html><html><body>Hello World!</body></html>"
-# unoffical smash brothers api : https://api.kuroganehammer.com/swagger/index.html
-# parameters : a character name
-# Returns: data on the moves of the specified character
 
 @app.route('/')
 def main_handler():
@@ -38,13 +30,10 @@ def safe_get_character_moves(name='Kirby'):
         move_page = move_page.read()
         move_page = json.loads(move_page)
         return move_page
-        #<!DOCTYPE html><html><body>'{movepage}'</body></html>".format(movepage=move_page)
     except urllib.error.HTTPError as e:
         return('<!DOCTYPE html><html><p>Error trying to retrieve data<p></html>')
-        #print("Error trying to retrieve data:", e)
     except urllib.error.URLError as e:
         return('<!DOCTYPE html><html><p>We failed to reach a server:p></html>')
-        #return("We failed to reach a server: ", e)
 
 @app.route("/gresponse")
 def character_response_handler():
@@ -52,11 +41,9 @@ def character_response_handler():
     app.logger.info(character)
     if character:
         char_data = safe_get_character_moves(character)
-        #list comprehension to create a list of all the moves as objects
         list_of_moves = []
         for move in char_data:
             move_object = buildingblocks.Move(move)
-            #if move_object.name contains []
             check = filter(move_object.name)
             if check == True:
                 list_of_moves.append(move_object)
@@ -109,11 +96,9 @@ def my_mains_moves(main_list):
         print_moves(character_moves)
         print('FINISHED THE MOVE LIST FOR THIS CHARACTER\n')
 
-#my_mains_moves(['Kirby', 'ZeroSuitSamus', 'Lucas', 'Pikachu'])
 if __name__ == "__main__":
 # Used when running locally only. 
 # When deploying to Google AppEngine, a webserver process will
 # serve your app. 
     app.run(host="localhost", port=8080, debug=True)
     safe_get_character_moves('Kirby')
-    #('<!DOCTYPE html><html><p>Error trying to retrieve data<p></html>')

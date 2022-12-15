@@ -36,6 +36,8 @@ class Move:
             self.src = 'https://live.staticflickr.com/65535/52564331342_aa64bc02e1_m.jpg'
         elif 'Bair' in self.name:
             self.src = 'https://live.staticflickr.com/65535/52564331342_aa64bc02e1_m.jpg'
+        elif 'Uair' in self.name:
+            self.src = 'https://live.staticflickr.com/65535/52565072589_d1c2626596_m.jpg'
         else:
             self.src = 'https://live.staticflickr.com/65535/52564904929_c3acf48fcc_m.jpg'
 
@@ -79,6 +81,4 @@ class Combo:
             string = 'Move 1: %s \nMove 2: %s \nMove 3: %s'%(self.move1, self.move2, self.move3)
         return string
 
-    def main():
-        print('hello world')
     

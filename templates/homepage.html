@@ -3,7 +3,7 @@
 <head>
     <title>Smash Bros Coach</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Unbounded&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Unbounded&display=swap');
         html {
             font-size: 13px;
         }
@@ -26,8 +26,11 @@
 
         .form-container{
             display:flex;
+            flex-direction: column;
             justify-content:center;
             align-items: center;
+            gap:3rem;
+            column-gap: 0.5;
             height:20rem;
             width:40rem;
             outline-style:solid;
@@ -42,6 +45,11 @@
             gap: 5rem;
         }
 
+        .form{
+            display:flex;
+            justify-content:center;
+        }
+
         .header{
             width:100vw;
             display:flex;
@@ -50,7 +58,9 @@
         }
         .text{
             font-family: 'Poppins', sans-serif;
+            font:bold;
         }
+
     </style>
 </head>
 <body>
@@ -59,9 +69,13 @@
     </header>
     <div class="form-container">
         <form action="gresponse" method="get">
-        <label class='text' for="character">What character do you need help with? </label>
-        <input class='text' type="text" id="character" name="character" /><br />
-        <input class='text' type="submit" value="Go" name="gobtn"/></form>
+        <div class="form">
+            <label class='text' for="character">What character do you need help with? </label>
+            <input class='text' type="text" id="character" name="character" /><br />
+            <input class='text' type="submit" value="Go" name="gobtn"/></form>
+        </div>
+        <div class="text">For characters with spaces in their name please enter as one word
+            seperated by capitals. Example : Zero Suit Samus = ZeroSuitSamus</div>
     </div>
 </body>
 </html>
